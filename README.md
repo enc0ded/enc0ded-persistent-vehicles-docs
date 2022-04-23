@@ -1,5 +1,4 @@
 To buy a copy of this mod please visit: https://fivem-mods.tebex.io/package/4499436
-
 # enc0ded-persistent-vehicles - version 3
 
 This mod prevents vehicles from disappearing in OneSync multiplayer servers. It can also respawn vehicles in their previous location after a server restart.
@@ -26,6 +25,8 @@ light, forgetAfter and state are optional params and can be omitted.
 ```lua
 # client event
 TriggerEvent('persistent-vehicles/register-vehicle', entity, light, forgetAfter, state)
+or
+TriggerEvent('persistent-vehicles/register-vehicle', entity)
 ```
 
 Stop a vehicle from being persistent and allow it to be removed as normal. Does not delete the vehicle.
@@ -110,3 +111,4 @@ or set the state server side before attempting to change the state client-side.
 
 ## License
 All rights reserved. You must purchase a license from https://fivem-mods.tebex.io
+
