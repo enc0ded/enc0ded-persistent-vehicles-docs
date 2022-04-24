@@ -16,12 +16,12 @@ ensure enc0ded-persistent-vehicles
 ## Usage
 IMPORTANT: You must only tigger 'persistent-vehicles/register-vehicle' after you set a lisense plate to a vehicle, or the vehicle will be registered with the wrong plate and WILL duplicate as mod uses plates to know if a vehicle exists or not.
 
-All vehicles must have a unqiue lisense plate.
+All vehicles must have a unique lisense plate.
 To make a vehicle persistent, pass its entity to the event below in a client script.
 
-Set light to true to only remember important props, good for work vehicles. Set forgetAfter (in seconds) to forget vehicle after specified time. 
-Set statebag key value pair to register statebag server side. See "State Bag Support" below for more information.
-light, forgetAfter and state are optional params and can be omitted.
+Set "light" to true to only remember important props, good for work vehicles. Set "forgetAfter" (in seconds) to forget vehicle after specified time. 
+Set "state" key/value pair to register statebags server side. See "State Bag Support" below for more information.
+"light", "forgetAfter" and "state" are optional params and can be omitted.
 ```lua
 # client event
 TriggerEvent('persistent-vehicles/register-vehicle', entity, light, forgetAfter, state)
@@ -46,13 +46,6 @@ Otherwise, if you enable repopulate on reboot then you need to call the server e
 ```lua
 # server  event
 TriggerEvent('persistent-vehicles/save-vehicles-to-file')
-```
-
-## Server Export Functions
-Return vehicle data known by the server. If vehicle is not persistent will return false.
-First arguement is the vehicle plate, second is a table of data to include: pos, props, entity, netId, trailer and forgetOn
-```lua
-exports['enc0ded-persistent-vehicles']:GetVehicleData('PLATE', {'pos', 'props'})
 ```
 
 ## Game Admin Commands
@@ -93,6 +86,13 @@ pv-toggle-debugging
 Save all persistent vehicles to file. Must be called before manually restarting server outside server restart times.
 ```bash
 pv-save-to-file
+```
+
+## Server Export Functions
+Return vehicle data known by the server. If vehicle is not persistent will return false.
+First arguement is the vehicle plate, second is a table of data to include: pos, props, entity, netId, trailer and forgetOn
+```lua
+exports['enc0ded-persistent-vehicles']:GetVehicleData('PLATE', {'pos', 'props'})
 ```
 
 ## State Bag Support
